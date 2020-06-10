@@ -1,5 +1,6 @@
 package com.bwl.study.model.vo;
 
+import com.bwl.study.enums.ResultEnum;
 import lombok.Data;
 
 /**
@@ -26,7 +27,7 @@ public class ResponseResult<T> {
     }
 
     public static <T> ResponseResult<T> ok() {
-        return new ResponseResult(1, "200", "操作成功", (Object)null);
+        return new ResponseResult(1, ResultEnum.SUCCESS.getCode(), ResultEnum.SUCCESS.getMessage(), (Object)null);
     }
 
     public static <T> ResponseResult<T> error() {
@@ -36,6 +37,16 @@ public class ResponseResult<T> {
     public static <T> ResponseResult<T> error(String message) {
         return new ResponseResult(0, "-100", message, (Object)null);
     }
+
+    public static <T> ResponseResult<T> error(String status,String message) {
+        return new ResponseResult(0, status, message, (Object)null);
+    }
+
+    public static <T> ResponseResult<T> error(ResultEnum resultEnum) {
+        return new ResponseResult(0, resultEnum.getCode(), resultEnum.getMessage(), (Object)null);
+    }
+
+
 
     public static <T> ResponseResult<T> build(String status, String message, T result) {
         return new ResponseResult(2, status, message, result);

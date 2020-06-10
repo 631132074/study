@@ -22,16 +22,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int add(SysUser user) {
-        int insert = sysUserMapper.insertSelective(user);
-        return insert;
+        return sysUserMapper.insertSelective(user);
     }
 
     @Override
     public List<SysUser> find() {
 
         SysUserExample userExample = new SysUserExample();
-        List<SysUser> sysUsers = sysUserMapper.selectByExample(userExample);
-        return sysUsers;
+        return sysUserMapper.selectByExample(userExample);
     }
 
     @Override

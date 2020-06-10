@@ -1,10 +1,8 @@
 package com.bwl.study.conf;
 
-import com.google.common.base.Predicate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -32,6 +30,7 @@ public class SwaggerConfig {
 
     /**
      * swagger2的配置文件，配置swagger2的一些基本的内容，比如扫描的包等等
+     *
      * @return
      */
     @Bean
@@ -48,6 +47,7 @@ public class SwaggerConfig {
 
     /**
      * 构建 api 文档的详细信息函数
+     *
      * @return
      */
     private ApiInfo apiInfo() {
