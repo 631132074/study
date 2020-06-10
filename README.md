@@ -1,0 +1,3 @@
+构建了一个springboot项目，用于尝试新的知识
+2020年6月10日
+目前初始化具备基本功能，基于springboot2+mybatis ，数据库连接池使用阿里的druid ，swagger2接口文档
