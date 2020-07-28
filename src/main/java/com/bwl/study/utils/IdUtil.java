@@ -9,7 +9,7 @@ import java.util.Enumeration;
 /**
  * @author BW Li
  * @date 2020-06-09 16:09
- * @description
+ * @description id生成器 Twitter的雪花算法（snowflake）自增ID
  */
 public class IdUtil {
     private final static long twepoch = 12888349746579L;
@@ -86,7 +86,8 @@ public class IdUtil {
         }
         lastTimestamp = timestamp;
         // ID偏移组合生成最终的ID，并返回ID
-        long nextId = ((timestamp - twepoch) << timestampLeftShift) | (processId << datacenterIdShift) | (workerId << workerIdShift) | sequence;
+//        long id =     (currentTimeStamp-referenceTime)<<timeDisplacement | fleetCode<<fleetDisplacement     | machineCode<<machineDisplacement | sequence;
+        long nextId = ((timestamp - twepoch) << timestampLeftShift)      | (processId << datacenterIdShift) | (workerId << workerIdShift) | sequence;
         return nextId;
     }
 

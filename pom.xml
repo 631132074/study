@@ -87,6 +87,14 @@
 <!--        </dependency>-->
         <!--shiro end -->
 
+        <!--sftp文件上传-->
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.54</version>
+        </dependency>
+        <!--sftp文件上传 end-->
+
         <!-- devtools 热部署，用于页面不重启加载  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -33,7 +33,7 @@ public class UserController {
     public ResponseResult add(@Valid @RequestBody UserDTO userDTO) {
 
         if (userDTO.getUserId() > 1 && userDTO.getUserId() < 10) {
-            int i = 1 / 0;
+//            int i = 1 / 0;
         } else if (userDTO.getUserId() > 10 && userDTO.getUserId() < 100) {
             throw new BusinessException(ResultEnum.UNKNOW_ERROR);
         } else if (userDTO.getUserId() > 100 && userDTO.getUserId() < 1000) {
