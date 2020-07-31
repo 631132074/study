@@ -1,4 +1,4 @@
-package com.bwl.study.conf;
+package com.bwl.study.conf.swagger;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

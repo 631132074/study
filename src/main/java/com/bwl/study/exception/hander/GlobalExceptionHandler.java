@@ -8,21 +8,21 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @author BW Li
  * @date 2020-05-21 13:47
  * @description
  */
-@ControllerAdvice
 @Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
     /**
      * 统一异常处理
      */
     @ExceptionHandler(Exception.class)
-    @ResponseBody
     public ResponseResult handleBindException(Exception e) {
 
         if (e instanceof MethodArgumentNotValidException) {

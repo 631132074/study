@@ -6,6 +6,8 @@ import com.bwl.study.exception.BusinessException;
 import com.bwl.study.model.dto.UserDTO;
 import com.bwl.study.model.vo.ResponseResult;
 import com.bwl.study.service.UserService;
+import com.bwl.study.utils.RedisUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,11 +31,15 @@ public class UserController {
     @Resource
     UserService userService;
 
+    @Autowired
+    RedisUtil redisUtil;
+
+
     @PostMapping("/add")
     public ResponseResult add(@Valid @RequestBody UserDTO userDTO) {
 
         if (userDTO.getUserId() > 1 && userDTO.getUserId() < 10) {
-//            int i = 1 / 0;
+            int i = 1 / 0;
         } else if (userDTO.getUserId() > 10 && userDTO.getUserId() < 100) {
             throw new BusinessException(ResultEnum.UNKNOW_ERROR);
         } else if (userDTO.getUserId() > 100 && userDTO.getUserId() < 1000) {
@@ -44,10 +50,12 @@ public class UserController {
                 list.add(new UserController());
             }
         }
+//
+//        userDTO.setUserId(Long.valueOf(1111111111));
+//        userDTO.setUserName("liz");
+//        userDTO.setCreatTime(new Date());
 
-        userDTO.setUserId(Long.valueOf(1111111111));
-        userDTO.setUserName("liz");
-        userDTO.setCreatTime(new Date());
+        redisUtil.set(String.valueOf(userDTO.getUserId()),userDTO);
         return ResponseResult.ok(userDTO);
     }
 

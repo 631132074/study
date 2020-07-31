@@ -1,5 +1,6 @@
 package com.bwl.study.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -21,8 +22,8 @@ public class UserDTO implements Serializable {
     @NotNull
     private Long userId;
 
-//    @JsonSerialize(using = ToStringSerializer.class)
     private String userName;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date creatTime;
 }

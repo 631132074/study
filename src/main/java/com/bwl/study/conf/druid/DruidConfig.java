@@ -1,4 +1,4 @@
-package com.bwl.study.conf;
+package com.bwl.study.conf.druid;
 
 
 import com.alibaba.druid.pool.DruidDataSource;
